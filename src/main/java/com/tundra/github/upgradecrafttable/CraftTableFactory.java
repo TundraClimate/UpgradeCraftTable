@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 
 public class CraftTableFactory {
-    public static Inventory generateCraftTable(){
+    public static Inventory generateCraftTable() {
         ItemStack blackPane = new ItemStackBuilder(Material.BLACK_STAINED_GLASS_PANE)
                 .setDisplayName(" ")
                 .addContainerData("cancel", PersistentDataType.STRING, "cancel")

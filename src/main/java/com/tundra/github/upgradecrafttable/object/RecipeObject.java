@@ -6,13 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 public class RecipeObject {
-    public RecipeObject(ItemStack result, RecipeType type,List<String> recipe, Map<Character, ItemStack> ingredients){
+    public RecipeObject(ItemStack result, RecipeType type, List<String> recipe, Map<Character, ItemStack> ingredients) {
         if (recipe.size() > 3) throw new IllegalArgumentException("recipe size is Illegal");
         this.result = result;
         this.type = type;
         this.recipe = recipe;
         this.ingredients = ingredients;
     }
+
     private final ItemStack result;
     private final RecipeType type;
     private final List<String> recipe;

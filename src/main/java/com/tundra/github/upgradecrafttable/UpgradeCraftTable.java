@@ -39,10 +39,11 @@ public final class UpgradeCraftTable extends JavaPlugin {
     public static SQLite getSqlite() {
         return sqlite;
     }
-    private void startRunnable(){
-        Bukkit.getScheduler().runTaskTimer(FineLib.getPlugin(),() ->{
+
+    private void startRunnable() {
+        Bukkit.getScheduler().runTaskTimer(FineLib.getPlugin(), () -> {
             Bukkit.getOnlinePlayers().forEach(player -> {
-                if (player.hasMetadata("crafter")){
+                if (player.hasMetadata("crafter")) {
                     Inventory inventory = player.getOpenInventory().getTopInventory();
                     ItemStack s = RecipeLocalServer.queryRecipeResult(
                             inventory.getItem(10) != null ? inventory.getItem(10) : new ItemStack(Material.AIR),
@@ -59,6 +60,6 @@ public final class UpgradeCraftTable extends JavaPlugin {
                         inventory.setItem(24, s);
                 }
             });
-        },0L,0L);
+        }, 0L, 0L);
     }
 }

@@ -1,6 +1,5 @@
 package com.tundra.github.upgradecrafttable;
 
-import com.tundra.finelib.FineLib;
 import com.tundra.finelib.builder.ItemStackBuilder;
 import com.tundra.finelib.database.sqlite.SQLite;
 import com.tundra.finelib.util.Base64Connector;

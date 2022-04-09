@@ -3,7 +3,6 @@ package com.tundra.github.upgradecrafttable.event;
 import com.tundra.finelib.FineLib;
 import com.tundra.github.upgradecrafttable.ConfigLoader;
 import com.tundra.github.upgradecrafttable.CraftTableFactory;
-import com.tundra.github.upgradecrafttable.RecipeLocalServer;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
@@ -23,9 +22,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.List;
 
 public class CraftTableDetector implements Listener {
-    public CraftTableDetector(JavaPlugin plugin) {
-        plugin.getServer().getPluginManager().registerEvents(this, plugin);
-    }
+    public CraftTableDetector(JavaPlugin plugin) {plugin.getServer().getPluginManager().registerEvents(this, plugin);}
 
     @EventHandler
     public void detectOpen(InventoryOpenEvent e) {

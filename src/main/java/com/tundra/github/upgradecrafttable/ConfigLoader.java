@@ -11,7 +11,7 @@ public class ConfigLoader {
 
     private ConfigLoader() {
         FineLib.getPlugin().saveDefaultConfig();
-        this.config =  FineLib.getPlugin().getConfig();
+        this.config = FineLib.getPlugin().getConfig();
         File recipe = new File(FineLib.getPlugin().getDataFolder(), "recipes");
         if (recipe.mkdirs())
             Bukkit.getLogger().info("Generated " + FineLib.getPlugin().getDataFolder() + "\\recipes");
