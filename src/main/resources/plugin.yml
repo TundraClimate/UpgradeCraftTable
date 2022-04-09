@@ -1,0 +1,16 @@
+name: UpgradeCraftTable
+version: '${version}'
+main: com.tundra.github.upgradecrafttable.UpgradeCraftTable
+api-version: 1.18
+authors: [ Tundra_Climate ]
+description: Upgrade Minecraft CraftTable
+
+permissions:
+  uct.*:
+    description: All permiison
+    default: op
+    children:
+      uct.open: true
+  uct.open:
+    description: allow open CraftTable
+    default: true
