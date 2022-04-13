@@ -37,12 +37,11 @@ public class SQLiteAction {
         File file = new File(FineLib.getPlugin().getDataFolder(), "recipes");
         if (!file.exists()) throw new NoSuchFileException("\"recipes\" is Not Found");
         Gson gson = new Gson();
-        try {
-            PreparedStatement ps = UpgradeCraftTable.getSqlite().prepareStatement("INSERT INTO temp VALUES(?, ?, ?, ?)");
+        try (PreparedStatement ps = UpgradeCraftTable.getSqlite().prepareStatement("INSERT INTO temp VALUES(?, ?, ?, ?)")){
             for (File listFile : Objects.requireNonNull(file.listFiles())) {
                 RecipeObject object = gson.fromJson(new FileReader(listFile), RecipeObject.class);
                 ps.setString(1, Base64Connector.encode(object.getType()));
-                ps.setString(2, Base64Connector.encode(object.getResult()));
+                ps.setString(2, object.getResult());
                 ps.setString(3, Base64Connector.encode(object.getRecipe()));
                 ps.setString(4, Base64Connector.encode(object.getIngredients()));
                 ps.executeUpdate();

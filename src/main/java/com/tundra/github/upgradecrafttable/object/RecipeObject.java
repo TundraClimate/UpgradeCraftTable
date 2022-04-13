@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class RecipeObject {
-    public RecipeObject(ItemStack result, RecipeType type, List<String> recipe, Map<Character, ItemStack> ingredients) {
+    public RecipeObject(String result, RecipeType type, List<String> recipe, Map<Character, String> ingredients) {
         if (recipe.size() > 3) throw new IllegalArgumentException("recipe size is Illegal");
         this.result = result;
         this.type = type;
@@ -14,12 +14,12 @@ public class RecipeObject {
         this.ingredients = ingredients;
     }
 
-    private final ItemStack result;
+    private final String  result;
     private final RecipeType type;
     private final List<String> recipe;
-    private final Map<Character, ItemStack> ingredients;
+    private final Map<Character, String> ingredients;
 
-    public ItemStack getResult() {
+    public String  getResult() {
         return result;
     }
 
@@ -31,7 +31,7 @@ public class RecipeObject {
         return recipe;
     }
 
-    public Map<Character, ItemStack> getIngredients() {
+    public Map<Character, String> getIngredients() {
         return ingredients;
     }
 

@@ -3,7 +3,8 @@ package com.tundra.github.upgradecrafttable.event;
 import com.tundra.finelib.FineLib;
 import com.tundra.github.upgradecrafttable.ConfigLoader;
 import com.tundra.github.upgradecrafttable.CraftTableFactory;
-import org.bukkit.Material;
+import com.tundra.github.upgradecrafttable.RecipeLocalServer;
+import com.tundra.github.upgradecrafttable.UpgradeCraftTable;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -60,9 +61,15 @@ public class CraftTableDetector implements Listener {
             e.setCancelled(true);
         } else if (e.getSlot() == 24 && e.getClickedInventory().getType() != InventoryType.PLAYER) {
             List<Integer> index = List.of(10, 11, 12, 19, 20, 21, 28, 29, 30);
-            index.forEach(i -> {
-                inv.setItem(i, new ItemStack(Material.AIR));
-            });
+            List<ItemStack> slot = UpgradeCraftTable.getCraftSlot().get((Player) e.getWhoClicked());
+            for (int i = 0; i < index.size(); i++) {
+                inv.setItem(index.get(i), slot.get(i));
+            }
+            if (e.getCursor() == null) return;
+            if (RecipeLocalServer.equalsOfAmount(e.getCursor(), e.getCurrentItem())){
+                e.setCancelled(true);
+                e.getCursor().setAmount(e.getCursor().getAmount() + e.getCurrentItem().getAmount());
+            }
         }
     }
 }
